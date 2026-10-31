@@ -1,0 +1,4 @@
+interface:
+  display_name: "Job Application Assistant"
+  short_description: "通过自适应能力诊断，生成岗位差距、学习路线和可靠资源"
+  default_prompt: "使用 $job-application-assistant，根据岗位名称和要求评估我的能力差距，并制定可执行的学习路线。"

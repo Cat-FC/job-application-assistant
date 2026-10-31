@@ -13,6 +13,9 @@
 - 生成分阶段路线、实践项目和验收标准
 - 推荐与具体差距对应的书籍、课程、视频和官方资料
 - 支持完成学习阶段后的进度复评与路线调整
+- 默认提供精简报告，也可按需生成详细模式
+- 输出可复制到新聊天的隐私安全诊断快照
+- 对简历、作品和联网检索执行数据最小化与脱敏规则
 
 ## 平台兼容性
 
@@ -110,15 +113,29 @@ references/
 
 ```text
 job-application-assistant/
+├── .github/workflows/validate.yml
+├── CHANGELOG.md
 ├── SKILL.md
-├── agents/
-│   └── openai.yaml
-└── references/
-    ├── assessment-roadmap.md
-    ├── question-design.md
-    ├── reassessment.md
-    └── resource-research.md
+├── agents/openai.yaml
+├── references/
+│   ├── assessment-roadmap.md
+│   ├── question-design.md
+│   ├── privacy.md
+│   ├── reassessment.md
+│   └── resource-research.md
+├── scripts/validate_release.py
+└── tests/behavior-cases.json
 ```
+
+## 验证
+
+仓库包含零依赖发布校验器和 10 个行为回归场景：
+
+```bash
+python scripts/validate_release.py
+```
+
+GitHub Actions 会在每次 push 和 pull request 时运行相同检查。行为案例描述应满足和禁止出现的结果，不锁定模型的具体措辞。
 
 ## 限制
 
@@ -126,6 +143,7 @@ job-application-assistant/
 - Skill 不虚构经历、技能、成果或证书。
 - 学习路线和匹配分析不构成录用保证。
 - 具体学习资料需要可用的联网搜索能力才能进行实时核验。
+- 上传简历或项目材料前仍建议主动移除联系方式、证件信息、详细住址和公司机密。
 
 ## License
 
